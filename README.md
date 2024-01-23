@@ -48,6 +48,17 @@ The following routes can be used to interact with the blockchain:
     - **Method:** `POST`
     - **Description:** Add a new transaction to the pending transactions list.
 
+- **Add Nodes:**
+    - **Endpoint:** `/nodes/add_nodes`
+    - **Method:** `POST`
+    - **Description:** Add new nodes to the network.
+
+- **Sync Nodes:**
+    - **Endpoint:** `/nodes/sync`
+    - **Method:** `GET`
+    - **Description:** Synchronize the blockchain with other nodes in the network.
+
+
 ## Example Usage
 ### Get Blockchain
 ```bash
@@ -61,5 +72,14 @@ curl http://localhost:PORT/mine
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"sender": "3c1dd188f3c74fb29b21889de1ee4943", "recipient": "0e6b092047a448aa83af316fd1214d51", "amount": 1.5}' http://localhost:PORT/transactions/new
 
+```
+### Add a Node
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"nodes": ["http://localhost:PORT", "http://localhost:PORT"]}' http://localhost:PORT/nodes/add_nodes
+```
+
+### Sync  a Node
+```bash
+curl http://localhost:PORT/nodes/sync
 ```
 
